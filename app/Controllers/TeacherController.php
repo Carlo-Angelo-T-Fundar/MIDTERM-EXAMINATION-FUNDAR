@@ -28,10 +28,9 @@ class TeacherController extends BaseController
             return redirect()->to(base_url('login'));
         }
 
-        // Prepare teacher-specific dashboard data
-        $data = $this->prepareTeacherDashboardData();
-        
-        return view('auth/dashboard', $data);
+        // Load the teacher dashboard view
+        // This is the main landing page for teachers after login
+        return view('teacher/teacher_dashboard');
     }
 
     /**

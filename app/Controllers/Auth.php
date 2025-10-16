@@ -135,7 +135,7 @@ class Auth extends BaseController
                 case 'teacher':
                     return redirect()->to(base_url('teacher/dashboard'));
                 case 'student':
-                    return redirect()->to(base_url('student/dashboard'));
+                    return redirect()->to(base_url('announcements'));
                 default:
                     return redirect()->to(base_url('dashboard'));
             }
@@ -226,13 +226,16 @@ class Auth extends BaseController
                 $this->session->remove('login_last_attempt');
                 
                 // Role-based redirection system
+                // Students are redirected to announcements page to see latest updates
+                // Teachers and Admins have dedicated dashboard pages
                 switch ($user['role']) {
                     case 'admin':
                         return redirect()->to(base_url('admin/dashboard'));
                     case 'teacher':
                         return redirect()->to(base_url('teacher/dashboard'));
                     case 'student':
-                        return redirect()->to(base_url('student/dashboard'));
+                        // Students are redirected to announcements page
+                        return redirect()->to(base_url('announcements'));
                     default:
                         // Fallback for any unknown role
                         return redirect()->to(base_url('dashboard'));
@@ -284,7 +287,7 @@ class Auth extends BaseController
             case 'teacher':
                 return redirect()->to(base_url('teacher/dashboard'));
             case 'student':
-                return redirect()->to(base_url('student/dashboard'));
+                return redirect()->to(base_url('announcements'));
             default:
                 // Fallback: if role is null or unknown, redirect to login
                 $this->session->setFlashdata('error', 'Invalid user role. Please contact administrator.');

@@ -28,10 +28,9 @@ class AdminController extends BaseController
             return redirect()->to(base_url('login'));
         }
 
-        // Gather statistics and data for admin dashboard
-        $data = $this->prepareAdminDashboardData();
-        
-        return view('auth/dashboard', $data);
+        // Load the admin dashboard view
+        // This is the main control panel for administrators
+        return view('admin/admin_dashboard');
     }
 
     /**
