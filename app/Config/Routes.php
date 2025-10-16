@@ -22,6 +22,9 @@ $routes->post('/login', 'Auth::login');          // Process login
 $routes->get('/logout', 'Auth::logout');         // Logout user
 $routes->get('/dashboard', 'Auth::dashboard');   // User dashboard (fallback)
 
+// Announcements Route - accessible to all logged-in users
+$routes->get('/announcements', 'Announcement::index'); // Display all announcements
+
 // Role-based Dashboard Routes
 $routes->group('admin', function($routes) {
     $routes->get('dashboard', 'AdminController::dashboard');
