@@ -86,7 +86,7 @@
         
         <!-- Navigation Buttons -->
         <div class="nav-buttons">
-            <a href="<?= base_url('announcements') ?>" class="btn btn-primary btn-lg">
+            <a href="<?= base_url('admin/announcements') ?>" class="btn btn-primary btn-lg">
                 <i class="fas fa-bullhorn"></i> View Announcements
             </a>
             <a href="<?= base_url('admin/users') ?>" class="btn btn-info btn-lg">

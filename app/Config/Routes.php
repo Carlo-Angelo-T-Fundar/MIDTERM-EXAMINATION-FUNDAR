@@ -32,6 +32,7 @@ $routes->get('/announcements', 'Announcement::index'); // Display all announceme
 // Only users with 'admin' role can access these routes
 $routes->group('admin', ['filter' => 'roleauth'], function($routes) {
     $routes->get('dashboard', 'AdminController::dashboard');
+    $routes->get('announcements', 'Announcement::index'); // Admin view announcements
     $routes->get('users', 'AdminController::manageUsers');
     $routes->post('users/create', 'AdminController::createUser');
     $routes->post('users/update', 'AdminController::updateUser');
@@ -44,6 +45,7 @@ $routes->group('admin', ['filter' => 'roleauth'], function($routes) {
 // Only users with 'teacher' role can access these routes
 $routes->group('teacher', ['filter' => 'roleauth'], function($routes) {
     $routes->get('dashboard', 'TeacherController::dashboard');
+    $routes->get('announcements', 'Announcement::index'); // Teacher view announcements
     $routes->get('courses', 'TeacherController::manageCourses');
     $routes->get('courses/create', 'TeacherController::createCourse');
     $routes->get('course/(:num)', 'TeacherController::viewCourse/$1');
@@ -53,7 +55,6 @@ $routes->group('teacher', ['filter' => 'roleauth'], function($routes) {
     $routes->get('students', 'TeacherController::viewStudents');
     $routes->get('reviews', 'TeacherController::pendingReviews');
     $routes->get('gradebook', 'TeacherController::gradebook');
-    $routes->get('announcements', 'TeacherController::announcements');
 });
 
 // Student Routes - Protected by RoleAuth filter

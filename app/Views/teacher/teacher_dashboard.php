@@ -85,7 +85,7 @@
         
         <!-- Navigation Buttons -->
         <div class="nav-buttons">
-            <a href="<?= base_url('announcements') ?>" class="btn btn-primary btn-lg">
+            <a href="<?= base_url('teacher/announcements') ?>" class="btn btn-primary btn-lg">
                 <i class="fas fa-bullhorn"></i> View Announcements
             </a>
             <a href="<?= base_url('logout') ?>" class="btn btn-outline-danger btn-lg">
